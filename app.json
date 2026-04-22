@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Macrometer",
-    "slug": "Macrometer",
+    "slug": "macrometer",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -39,6 +39,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "281048f7-cecb-4b56-896f-ff42f94a92eb"
+      }
+    },
+    "owner": "v1rtues"
   }
 }
