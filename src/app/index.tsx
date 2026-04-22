@@ -1,21 +1,15 @@
-import { Text, View, StyleSheet, Platform } from "react-native";
+import { globalStyles } from "@/styles/global";
+import { Text, View, StyleSheet, Platform, ScrollView } from "react-native";
+import HomeHeader from "./components/HomeHeader";
 
 export default function HomeScreen() {
   return (
     
-    <View style={styles.container}>
-      <Text>MacroMeter</Text>
-      <Text>Running on: {Platform.OS}</Text>
-      
-    </View>
+    <ScrollView style={globalStyles.container}>
+      <Text style={globalStyles.title}>MacroMeter</Text>
+        <HomeHeader />
+    </ScrollView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "red",
-  },
-});
+
