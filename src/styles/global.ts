@@ -38,4 +38,9 @@ export const globalStyles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
+
+  link: {
+    color: colors.primary,
+    fontSize: 14,
+  },
 });
