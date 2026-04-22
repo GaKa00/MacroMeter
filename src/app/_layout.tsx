@@ -1,8 +1,17 @@
+import { colors } from "@/styles/global";
 import { Stack } from "expo-router";
 
 export default function RootLayout() {
-  return <Stack  screenOptions={{headerTitle: 'MacroMeter', headerTitleAlign: 'center', headerShown: false}}>;
-<Stack.Screen name="index" options={{headerTitle: 'Home', headerTitleAlign: 'center'}} />
-<Stack.Screen name="meals" options={{headerTitle: 'All Meals', headerTitleAlign: 'center'}} />
-  </Stack>;
+  return (
+    <Stack
+      screenOptions={{
+        headerStyle: { backgroundColor: colors.header },
+        headerTintColor: "#fff",
+      }}
+    >
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen options={{ title: "Meals" }} name="meals" />
+      <Stack.Screen options={{ title: "Add Meal" }} name="add-meal" />
+    </Stack>
+  );
 }
