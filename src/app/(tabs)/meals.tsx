@@ -1,6 +1,6 @@
 import { globalStyles } from "@/styles/global";
 import { Text, ScrollView } from "react-native";
-import { Link } from "../../.expo/types/router";
+import { Link } from "../../../.expo/types/router";
 
 export default function MealsScreen() {
   return (
