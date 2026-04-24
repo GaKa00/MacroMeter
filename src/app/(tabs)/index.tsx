@@ -24,7 +24,7 @@ export default function HomeScreen() {
       <Text style={globalStyles.title}>MacroMeter</Text>
       <HomeHeader />
       <MacroGrid />
-      <RecentMeals />
+      <RecentMeals meals={meals}/>
     </ScrollView>
   );
 }
