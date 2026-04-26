@@ -1,5 +1,6 @@
 import { globalStyles } from "@/styles/global";
 import { Text, View, StyleSheet, Platform, ScrollView } from "react-native";
+import ShareButton from "../components/ShareButton";
 import HomeHeader from "@/app/components/HomeHeader";
 import { Link, useFocusEffect } from "expo-router";
 import MacroGrid from "../components/MacroGrid";
@@ -21,10 +22,13 @@ export default function HomeScreen() {
   }, []));
   return (
     <ScrollView style={globalStyles.container}>
+      <View style={globalStyles.header}>
       <Text style={globalStyles.title}>MacroMeter</Text>
+      <ShareButton meals={meals} />
+      </View>
       <HomeHeader />
-      <MacroGrid  meals={meals}/>
-      <RecentMeals meals={meals} onDelete={loadMeals}/>
+      <MacroGrid meals={meals} />
+      <RecentMeals meals={meals} onDelete={loadMeals} />
     </ScrollView>
   );
 }
