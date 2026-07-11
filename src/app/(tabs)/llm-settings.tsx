@@ -11,7 +11,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-
 // Define the supported provider types to match your storage schema
 type LLMProvider = "gemini" | "openai" | "anthropic";
 
