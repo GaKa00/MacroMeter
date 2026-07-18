@@ -11,14 +11,13 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-// Define the supported provider types to match your storage schema
+
 type LLMProvider = "gemini" | "openai" | "anthropic";
 
 export default function LLMSettings() {
     const [provider, setProvider] = useState<LLMProvider>("gemini");
     const [inputKey, setInputKey] = useState("");
 
-    // Automatically load the saved key whenever the selected provider changes
     useEffect(() => {
       async function loadKeyForProvider() {
         const storedKey = await getApiKey(provider);
@@ -33,7 +32,6 @@ export default function LLMSettings() {
         return;
       }
 
-      // Pass both the provider (the key) and the token (the value)
       const success = await saveApiKey(provider, inputKey.trim());
       if (success) {
         Alert.alert("Success", `${provider.toUpperCase()} key saved securely!`);
