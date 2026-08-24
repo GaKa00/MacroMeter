@@ -1,10 +1,15 @@
-
 import { clearAllMeals, getMeals, Meal } from "@/storage/meals";
 import { globalStyles } from "@/styles/global";
 import { useFocusEffect } from "expo-router";
 import { useCallback, useState } from "react";
-import { ScrollView, Text, View, StyleSheet, TouchableOpacity } from "react-native";
-import MealItem from "../components/MealItem";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import MealItem from "../../components/MealItem";
 
 export default function MealsScreen() {
   const [meals, setMeals] = useState<Meal[]>([]);
@@ -14,11 +19,10 @@ export default function MealsScreen() {
     setMeals(data);
   };
 
-
   const handleClearMeals = async () => {
     await clearAllMeals();
     loadMeals();
-  }
+  };
   useFocusEffect(
     useCallback(() => {
       loadMeals();
@@ -28,10 +32,10 @@ export default function MealsScreen() {
   return (
     <ScrollView style={globalStyles.container}>
       <View style={globalStyles.header}>
-      <Text style={globalStyles.title}>All Meals</Text>
-      <TouchableOpacity onPress={handleClearMeals}>
-        <Text style={styles.clearButton}>Clear All</Text>
-      </TouchableOpacity>
+        <Text style={globalStyles.title}>All Meals</Text>
+        <TouchableOpacity onPress={handleClearMeals}>
+          <Text style={styles.clearButton}>Clear All</Text>
+        </TouchableOpacity>
       </View>
       <View style={{ marginTop: 30 }}>
         {meals.length === 0 ? (

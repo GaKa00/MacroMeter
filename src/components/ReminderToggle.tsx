@@ -2,11 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import {useEffect, useState} from 'react'
 import { Switch, View, Text, StyleSheet } from 'react-native'
 import {colors} from '@/styles/global'
-import {
-  cancelMealReminders,
-  requestPermissions,
-  scheduleMealReminders,
-} from "@/utils/notifications";
+import { requestPermissions, scheduleMealReminders, cancelMealReminders } from '@/utils/notifications'
 
 const REMINDER_KEY = 'meal_reminders_enabled';
 

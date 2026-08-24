@@ -1,17 +1,28 @@
 import * as Notifications from "expo-notifications";
+import Constants, { ExecutionEnvironment } from "expo-constants";
 
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldShowBanner: true,
-    shouldShowList: true,
-    shouldPlaySound: false,
-    shouldSetBadge: false,
-  }),
-});
+
+const isExpoGo =
+  Constants.executionEnvironment === ExecutionEnvironment.StoreClient;
+  if (!isExpoGo) {
+    Notifications.setNotificationHandler({
+      handleNotification: async () => ({
+        shouldShowAlert: true,
+        shouldShowBanner: true,
+        shouldShowList: true,
+        shouldPlaySound: false,
+        shouldSetBadge: false,
+      }),
+    });
+  }
+
 
 export const requestPermissions = async (): Promise<boolean> => {
   const { status } = await Notifications.requestPermissionsAsync();
+  if (isExpoGo) {
+    console.warn("Push notifications are disabled in Expo Go");
+    return false;
+  }
   return status === "granted";
 };
 
